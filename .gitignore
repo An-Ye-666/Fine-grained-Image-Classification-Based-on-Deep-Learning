@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Notebooks and editors
+.ipynb_checkpoints/
+.idea/
+.vscode/
+.obsidian/
+
+# Data and large model files
+datasets/
+artifacts/checkpoints/
+*.pth
+*.pt
+*.ckpt
+runs/
+wandb/
+
+# Local configuration
+.env
+.DS_Store
+Thumbs.db
