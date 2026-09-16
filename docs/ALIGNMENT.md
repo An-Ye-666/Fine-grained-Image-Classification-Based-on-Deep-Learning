@@ -217,6 +217,45 @@ train.py --help：通过
 
 第 4 轮后训练指标继续提升，但验证指标下降，说明存在过拟合。
 
+## A3 消融实验
+
+```text
+阶段编号：A3
+阶段状态：VERIFYING
+对齐结论：使用独立脚本比较普通 CrossEntropy 与 Label Smoothing 0.1
+```
+
+### 实验设置
+
+```text
+Baseline 比价范围：前 10 轮
+实验组：Label Smoothing 0.1，训练 10 轮
+模型：ResNet-18
+Seed：42
+Batch Size：32
+学习率：1e-4
+Weight Decay：1e-4
+设备：本地 CPU
+唯一变量：损失函数
+```
+
+### 结果
+
+```text
+Baseline Top-1：0.9247
+Label Smoothing Top-1：0.9319
+Baseline Macro-F1：0.9244
+Label Smoothing Macro-F1：0.9315
+最佳 Label Smoothing 轮次：9
+最佳模型复算：一致
+```
+
+### 结论
+
+在当前单次实验设置下，Label Smoothing 0.1 对 Top-1 和 Macro-F1 都带来了约
+0.7 个百分点的小幅提升。该结果只代表当前固定数据划分、随机种子和训练预算，
+不能直接推广为普遍结论。
+
 ## 后续阶段模板
 
 ```text

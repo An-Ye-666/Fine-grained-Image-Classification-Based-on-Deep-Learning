@@ -4,13 +4,12 @@
 
 ## 当前状态
 
-当前阶段：A2 Baseline
+当前阶段：A3 消融实验
 
 当前状态：VERIFYING
 
-A1 数据与评估协议已经验收。A2 的 ResNet-18 模型、训练循环和训练入口已经实现，
-预训练权重及输出形状检查通过，本地 CPU 已完成 15 轮 Baseline 训练，
-最佳验证集 Top-1 为 92.47%；当前等待阶段验收。
+A2 Baseline 已验收。A3 已完成 Label Smoothing 0.1 的 10 轮单变量实验，
+最佳验证集 Top-1 为 93.19%，最佳模型复算一致；当前等待 A3 阶段验收。
 
 ## 项目目标
 
@@ -37,6 +36,7 @@ A1 数据与评估协议已经验收。A2 的 ResNet-18 模型、训练循环和
 ├── docs/                  项目管理文档
 ├── train.py               训练入口
 ├── evaluate.py            评估入口
+├── train_label_smoothing.py Label Smoothing 消融入口
 ├── requirements.txt       依赖清单
 └── README.md
 ```

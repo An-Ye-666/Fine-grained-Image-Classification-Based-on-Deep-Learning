@@ -3,13 +3,13 @@
 ## 当前快照
 
 ```text
-当前阶段：A2 Baseline
+当前阶段：A3 消融实验
 阶段状态：VERIFYING
-当前目标：确认 15 轮 Baseline 训练结果和最佳模型
-已完成：本地 CPU 完成 15 轮训练；最佳模型复算通过
-已知问题：第 4 轮后出现明显过拟合；测试集仍未评估
-下一步：项目负责人验收 A2，然后进入 A3 对齐
-最后提交：c9237f2
+当前目标：确认 Label Smoothing 0.1 的消融结果
+已完成：独立实验脚本、10 轮训练和最佳模型复算
+已知问题：仅完成单次实验；测试集仍未评估
+下一步：项目负责人验收 A3，然后进入 A4 对齐
+最后提交：62d769b
 ```
 
 ## 阶段进度
@@ -18,8 +18,8 @@
 | --- | --- | --- |
 | A0 工程骨架 | ACCEPTED | Git、目录、项目控制文档 |
 | A1 数据与评估协议 | ACCEPTED | 固定划分、数据管线、指标和检查脚本 |
-| A2 Baseline | VERIFYING | 15 轮训练、最佳模型、训练日志 |
-| A3 消融实验 | TODO | 待 A2 通过 |
+| A2 Baseline | ACCEPTED | 15 轮训练、最佳模型、训练日志 |
+| A3 消融实验 | VERIFYING | Label Smoothing 0.1 对比结果 |
 | A4 评估与可解释性 | TODO | 待 A3 通过 |
 | A5 工程化与复现 | TODO | 待 A4 通过 |
 | A6 报告与答辩 | TODO | 待 A5 通过 |
@@ -114,6 +114,28 @@ batch 级训练/验证进度条：通过
 结论：第 4 轮后出现明显过拟合
 ```
 
+## A3 检查点
+
+| ID | 检查项 | 状态 | 证据 |
+| --- | --- | --- | --- |
+| C3.1 | 创建独立 Label Smoothing 脚本 | DONE | `train_label_smoothing.py` |
+| C3.2 | 运行 10 轮单变量实验 | DONE | `artifacts/runs/label_smoothing_0.1` |
+| C3.3 | 重新加载最佳模型复算 | DONE | Top-1 93.19% |
+| C3.4 | 完成 Baseline 对比 | DONE | `docs/EXPERIMENTS.md` |
+| C3.5 | 建立 A3 结果提交 | DOING | 待提交 |
+
+## A3 验证记录
+
+```text
+Baseline：Top-1 92.47%，Macro-F1 0.9244
+Label Smoothing 0.1：Top-1 93.19%，Macro-F1 0.9315
+Top-1 变化：+0.73 个百分点
+Macro-F1 变化：+0.71 个百分点
+最佳轮次：9
+最佳模型复算：一致
+结论：当前单次实验下有小幅提升
+```
+
 ## 需求状态
 
 | 需求 | 状态 |
@@ -122,7 +144,7 @@ batch 级训练/验证进度条：通过
 | R2 数据预处理 | DONE |
 | R3 Baseline | DONE |
 | R4 训练记录 | DONE |
-| R5 消融实验 | TODO |
+| R5 消融实验 | DONE |
 | R6 评估与分析 | TODO |
 | R7 Grad-CAM | TODO |
 | R8 工程交付 | DOING |

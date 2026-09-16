@@ -14,11 +14,12 @@ Baseline 已在本地 CPU 完成 15 轮训练。
 | Run ID | Commit | 配置 | Seed | Top-1 Acc | Top-5 Acc | Macro-F1 | 耗时 | 日志路径 | 结论 |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
 | baseline-01 | `d48b6f3` | ResNet-18 + 基础增强 + CrossEntropy + AdamW | 42 | 92.47% | 99.82% | 0.9244 | 约 93 分钟 | `artifacts/runs/baseline` | 第 4 轮最佳，之后明显过拟合 |
+| label-smoothing-01 | 待提交 | ResNet-18 + 基础增强 + CrossEntropy(LS=0.1) + AdamW | 42 | 93.19% | 99.09% | 0.9315 | 约 27 分钟 | `artifacts/runs/label_smoothing_0.1` | 第 9 轮最佳，Top-1 和 Macro-F1 小幅提升 |
 
 ## 计划实验
 
 | 编号 | 实验 | 状态 |
 | --- | --- | --- |
 | E1 | Baseline：ResNet-18 + 基础增强 + CrossEntropy | DONE |
-| E2 | 消融 A：Label Smoothing 0.1 | TODO |
+| E2 | 消融 A：Label Smoothing 0.1 | DONE |
 | E3 | 消融 B：待 A3 对齐后确定 | TODO |
