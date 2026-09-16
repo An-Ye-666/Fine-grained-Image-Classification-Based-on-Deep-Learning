@@ -17,6 +17,7 @@ env/
 .obsidian/
 
 # Data and large model files
+data/oxford-iiit-pet/
 datasets/
 artifacts/checkpoints/
 *.pth

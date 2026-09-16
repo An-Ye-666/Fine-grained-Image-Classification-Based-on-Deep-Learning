@@ -1,0 +1,10 @@
+# 本项目当前验证通过的 Python 依赖版本。
+torch==2.14.0
+torchvision==0.29.0
+timm==1.0.29
+numpy==2.5.3
+Pillow==12.3.0
+scikit-learn==1.9.1
+matplotlib==3.11.2
+pandas==3.0.5
+tensorboard==2.21.0

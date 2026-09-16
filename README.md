@@ -4,11 +4,13 @@
 
 ## 当前状态
 
-当前阶段：A0 工程骨架与项目控制台
+当前阶段：A1 数据与评估协议
 
-当前状态：VERIFYING
+当前状态：ACCEPTED
 
-本项目尚未开始数据下载、模型训练和实验。当前步骤先建立工程结构、需求映射、架构说明和项目状态记录。
+数据划分、图片 Transform、Dataset、DataLoader 和基础指标已经实现并通过自动检查。
+A1 已由项目负责人验收。本地 PyTorch 是 CPU 版本；Colab 云端 Tesla T4 已验证可用，
+但项目代码和数据在 Colab 上的部署留到 A2 处理。
 
 ## 项目目标
 
@@ -23,8 +25,13 @@
 ```text
 .
 ├── data/                  数据集加载、划分和 Transform
+│   ├── manifest.py        官方清单解析与固定划分
+│   ├── transforms.py      图片 Transform
+│   ├── dataset.py         PyTorch Dataset
+│   └── dataloaders.py     DataLoader 构造
 ├── models/                模型定义
 ├── utils/                 指标、日志和可视化工具
+├── scripts/               可重复运行的检查脚本
 ├── datasets/              原始数据，不提交到 Git
 ├── artifacts/             实验证据和交付物
 ├── docs/                  项目管理文档
@@ -34,7 +41,7 @@
 └── README.md
 ```
 
-Python 文件将在后续阶段逐步实现，当前只建立包边界，不提前写未经验证的算法代码。
+模型与训练代码将在 A2 阶段实现。A1 当前只负责数据入口和评价协议。
 
 ## 项目文档
 
@@ -50,4 +57,14 @@ Python 文件将在后续阶段逐步实现，当前只建立包边界，不提�
 
 ## 快速开始
 
-环境和依赖将在 A1、A2 阶段确认后补充。README 的命令必须在全新环境中验证通过，避免写入未经测试的一键复现步骤。
+```bash
+pip install -r requirements.txt
+python -m data.manifest
+python -m scripts.check_a1_data
+```
+
+如果本地数据缺失，可以运行：
+
+```bash
+python -m data.manifest --download
+```

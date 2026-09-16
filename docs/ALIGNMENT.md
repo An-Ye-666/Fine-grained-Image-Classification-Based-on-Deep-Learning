@@ -78,6 +78,79 @@ Python 训练依赖和实际训练环境属于 A1 的环境决策。
 - 数据划分协议存在歧义：推迟到 A1，通过数据和实验规则一起对齐；
 - 文档过多可能增加负担：只维护必要内容，不复制任务书全文。
 
+## A1 数据与评估协议
+
+```text
+阶段编号：A1
+阶段状态：ACCEPTED
+对齐结论：项目负责人确认执行完整 A1，并要求代码对 Python 入门学习者可读
+验收结论：项目负责人确认 A1 未发现问题
+```
+
+### 阶段目标
+
+建立固定、无重叠、可重复的 70/15/15 数据划分，完成图片 Transform、PyTorch Dataset、DataLoader 和统一评价指标，并通过自动检查。
+
+### 必须完成
+
+- 使用官方 7,349 个样本；
+- 合并官方 `trainval` 与 `test` 清单后重新分层；
+- 使用 `seed=42` 生成 70/15/15；
+- 保存固定 JSON 划分文件；
+- 训练集使用随机增强；
+- 验证集和测试集使用确定性 Transform；
+- 实现单张图片读取和 batch 读取；
+- 实现 Top-1、Top-5 和 Macro-F1；
+- 自动检查无重叠、类别覆盖、形状、标签和指标。
+
+### 明确不做
+
+- 不训练 ResNet-18；
+- 不选择 Baseline 超参数；
+- 不运行消融实验；
+- 不生成 Grad-CAM；
+- 不撰写报告正文。
+
+### 输出物
+
+```text
+data/manifest.py
+data/transforms.py
+data/dataset.py
+data/dataloaders.py
+utils/metrics.py
+scripts/check_a1_data.py
+artifacts/splits/oxford_pet_seed42.json
+requirements.txt
+```
+
+### 验收标准
+
+- 官方样本总数为 7,349；
+- 划分数量为 5144 / 1102 / 1103；
+- 三份数据无重叠且覆盖全部 37 类；
+- 单张图片形状为 `[3, 224, 224]`；
+- batch 形状为 `[32, 3, 224, 224]`；
+- 标签范围为 0 到 36；
+- 验证集读取具备确定性；
+- 指标函数可以正确计算；
+- 相同 seed 重复生成相同划分文件。
+
+### 验证结果
+
+```text
+python -m data.manifest：通过
+python -m scripts.check_a1_data：全部通过
+划分文件 SHA-256：13C4BD919AB1D5DF0FBB783727429B11327C13BD3D877F1EE8DEF1A897FA496C
+本地 CUDA：不可用
+Colab 环境：Linux、Tesla T4、CUDA 可用
+延后事项：在 Colab 上重新运行 A1 和部署项目
+```
+
+### 阶段验收
+
+项目负责人已确认 A1 未发现问题。建立 A1 提交后，进入 A2 Baseline 对齐。
+
 ## 后续阶段模板
 
 ```text
