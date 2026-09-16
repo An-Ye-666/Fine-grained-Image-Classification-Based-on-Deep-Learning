@@ -9,7 +9,7 @@
 已完成：固定划分、Dataset、Transform、DataLoader、基础指标和自动检查
 已知问题：Colab 端重新运行和项目部署暂缓；依赖版本策略留到 A2
 下一步：建立 A1 提交，然后进入 A2 Baseline 对齐
-最后提交：51a4051
+最后提交：7f9fc84
 ```
 
 ## 阶段进度
@@ -59,7 +59,7 @@ Python 包编译：通过
 | C1.5 | 实现 Dataset 与 DataLoader | DONE | `data/dataset.py`、`data/dataloaders.py` |
 | C1.6 | 实现评价指标 | DONE | `utils/metrics.py` |
 | C1.7 | 自动检查数据协议 | DONE | `python -m scripts.check_a1_data` |
-| C1.8 | 建立 A1 提交 | DOING | 正在建立提交 |
+| C1.8 | 建立 A1 提交 | DONE | `7f9fc84` |
 
 ## A1 验证记录
 
