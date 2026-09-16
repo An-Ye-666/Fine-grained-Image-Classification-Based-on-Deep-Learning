@@ -1,6 +1,7 @@
 # 实验记录
 
 Baseline 已在本地 CPU 完成 15 轮训练。
+最终模型已选择 Label Smoothing 0.1 的第 9 轮 checkpoint。
 
 ## 记录规则
 

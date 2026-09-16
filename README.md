@@ -4,12 +4,12 @@
 
 ## 当前状态
 
-当前阶段：A3 消融实验
+当前阶段：A4 评估与可解释性
 
-当前状态：VERIFYING
+当前状态：EXECUTING
 
-A2 Baseline 已验收。A3 已完成 Label Smoothing 0.1 的 10 轮单变量实验，
-最佳验证集 Top-1 为 93.19%，最佳模型复算一致；当前等待 A3 阶段验收。
+A3 已验收，最终模型确定为 Label Smoothing 0.1 的第 9 轮 checkpoint。
+A4 已获准只解锁测试集一次，下一步生成最终指标、混淆矩阵和 Grad-CAM。
 
 ## 项目目标
 
