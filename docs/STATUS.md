@@ -4,12 +4,12 @@
 
 ```text
 当前阶段：A4 评估与可解释性
-阶段状态：EXECUTING
-当前目标：完成一次性测试评估、混淆矩阵和 Grad-CAM
-已完成：A3 验收；最终模型已冻结；测试集已获准评估一次
-已知问题：A4 分析与可视化代码尚未实现
-下一步：实现并运行 A4 分析入口
-最后提交：5c385f6
+阶段状态：VERIFYING
+当前目标：确认最终测试指标、混淆矩阵和 Grad-CAM
+已完成：测试集一次性评估、混淆矩阵、错误案例、Grad-CAM 和结果文档
+已知问题：A4 尚待项目负责人验收
+下一步：项目负责人验收 A4，然后进入 A5 工程化与复现
+最后提交：c2eb43b
 ```
 
 ## 阶段进度
@@ -20,7 +20,7 @@
 | A1 数据与评估协议 | ACCEPTED | 固定划分、数据管线、指标和检查脚本 |
 | A2 Baseline | ACCEPTED | 15 轮训练、最佳模型、训练日志 |
 | A3 消融实验 | ACCEPTED | Label Smoothing 0.1 对比结果 |
-| A4 评估与可解释性 | EXECUTING | 测试评估、混淆矩阵、Grad-CAM |
+| A4 评估与可解释性 | VERIFYING | 测试评估、混淆矩阵、Grad-CAM |
 | A5 工程化与复现 | TODO | 待 A4 通过 |
 | A6 报告与答辩 | TODO | 待 A5 通过 |
 
@@ -146,10 +146,26 @@ checkpoint，并授权在 A4 中只评估测试集一次。
 | ID | 检查项 | 状态 | 证据 |
 | --- | --- | --- | --- |
 | C4.1 | 冻结最终模型 | DONE | Label Smoothing 第 9 轮 |
-| C4.2 | 一次性测试集评估 | TODO | 待实现并运行 |
-| C4.3 | 生成 37 类混淆矩阵 | TODO | 待实现 |
-| C4.4 | 生成正向和错误案例 Grad-CAM | TODO | 待实现 |
-| C4.5 | 完成错误分析记录 | TODO | 待实现 |
+| C4.2 | 一次性测试集评估 | DONE | Top-1 92.66% |
+| C4.3 | 生成 37 类混淆矩阵 | DONE | `confusion_matrix.png` |
+| C4.4 | 生成正确和错误案例 Grad-CAM | DONE | `gradcam_correct.png`、`gradcam_error.png` |
+| C4.5 | 完成错误分析记录 | DONE | `analysis_summary.md` |
+| C4.6 | 建立 A4 结果提交 | DOING | 待提交 |
+
+## A4 验证记录
+
+```text
+测试样本数：1103
+测试装置：CPU
+测试 Loss：0.4036
+测试 Top-1：0.9266
+测试 Top-5：0.9937
+测试 Macro-F1：0.9258
+主要混淆：Egyptian_Mau -> Bengal（5）
+主要混淆：american_pit_bull_terrier -> staffordshire_bull_terrier（5）
+正确案例：english_setter_21
+错误案例：american_pit_bull_terrier_46 -> staffordshire_bull_terrier
+```
 
 ## 需求状态
 
@@ -160,8 +176,8 @@ checkpoint，并授权在 A4 中只评估测试集一次。
 | R3 Baseline | DONE |
 | R4 训练记录 | DONE |
 | R5 消融实验 | DONE |
-| R6 评估与分析 | DOING |
-| R7 Grad-CAM | DOING |
+| R6 评估与分析 | DONE |
+| R7 Grad-CAM | DONE |
 | R8 工程交付 | DOING |
 | R9 技术报告 | TODO |
 | R10 答辩准备 | TODO |

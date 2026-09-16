@@ -265,7 +265,7 @@ checkpoint，测试集获准在 A4 中评估一次。
 
 ```text
 阶段编号：A4
-阶段状态：EXECUTING
+阶段状态：VERIFYING
 对齐结论：使用最终模型完成一次性测试评估、混淆矩阵和 Grad-CAM
 ```
 
@@ -292,6 +292,26 @@ checkpoint，测试集获准在 A4 中评估一次。
 - Grad-CAM 明确标注目标层和预测类别；
 - 至少分析一个真实错误案例；
 - 所有图和指标都保存到固定目录。
+
+### 实际执行结果
+
+```text
+测试样本数：1103
+测试 Loss：0.4036
+测试 Top-1：0.9266
+测试 Top-5：0.9937
+测试 Macro-F1：0.9258
+正确案例：english_setter_21
+错误案例：american_pit_bull_terrier_46 -> staffordshire_bull_terrier
+```
+
+主要混淆品种对：
+
+```text
+Egyptian_Mau -> Bengal
+american_pit_bull_terrier -> staffordshire_bull_terrier
+Siamese -> Birman
+```
 
 ## 后续阶段模板
 

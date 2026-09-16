@@ -6,10 +6,10 @@
 
 当前阶段：A4 评估与可解释性
 
-当前状态：EXECUTING
+当前状态：VERIFYING
 
 A3 已验收，最终模型确定为 Label Smoothing 0.1 的第 9 轮 checkpoint。
-A4 已获准只解锁测试集一次，下一步生成最终指标、混淆矩阵和 Grad-CAM。
+A4 已完成一次性测试评估，测试集 Top-1 为 92.66%，并生成混淆矩阵和 Grad-CAM。
 
 ## 项目目标
 

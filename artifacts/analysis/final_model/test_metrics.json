@@ -1,0 +1,104 @@
+{
+  "checkpoint": "C:\\Users\\19603\\AAA科研项目1号\\artifacts\\runs\\label_smoothing_0.1\\best_model.pth",
+  "checkpoint_epoch": 9,
+  "split": "test",
+  "sample_count": 1103,
+  "evaluation_loss": "standard CrossEntropyLoss",
+  "metrics": {
+    "loss": 0.4035661063568222,
+    "top1_accuracy": 0.9265639185905457,
+    "top5_accuracy": 0.9936536550521851,
+    "macro_f1": 0.9258313510558498
+  },
+  "elapsed_seconds": 18.765732200001366,
+  "top_confusions": [
+    {
+      "true_class": "Egyptian_Mau",
+      "predicted_class": "Bengal",
+      "count": 5,
+      "true_class_support": 29,
+      "ratio_of_true_class": 0.1724137931034483
+    },
+    {
+      "true_class": "american_pit_bull_terrier",
+      "predicted_class": "staffordshire_bull_terrier",
+      "count": 5,
+      "true_class_support": 30,
+      "ratio_of_true_class": 0.16666666666666666
+    },
+    {
+      "true_class": "Siamese",
+      "predicted_class": "Birman",
+      "count": 4,
+      "true_class_support": 30,
+      "ratio_of_true_class": 0.13333333333333333
+    },
+    {
+      "true_class": "american_pit_bull_terrier",
+      "predicted_class": "american_bulldog",
+      "count": 3,
+      "true_class_support": 30,
+      "ratio_of_true_class": 0.1
+    },
+    {
+      "true_class": "Bengal",
+      "predicted_class": "Abyssinian",
+      "count": 2,
+      "true_class_support": 30,
+      "ratio_of_true_class": 0.06666666666666667
+    },
+    {
+      "true_class": "British_Shorthair",
+      "predicted_class": "Ragdoll",
+      "count": 2,
+      "true_class_support": 30,
+      "ratio_of_true_class": 0.06666666666666667
+    },
+    {
+      "true_class": "Persian",
+      "predicted_class": "Maine_Coon",
+      "count": 2,
+      "true_class_support": 30,
+      "ratio_of_true_class": 0.06666666666666667
+    },
+    {
+      "true_class": "great_pyrenees",
+      "predicted_class": "samoyed",
+      "count": 2,
+      "true_class_support": 30,
+      "ratio_of_true_class": 0.06666666666666667
+    },
+    {
+      "true_class": "miniature_pinscher",
+      "predicted_class": "american_pit_bull_terrier",
+      "count": 2,
+      "true_class_support": 30,
+      "ratio_of_true_class": 0.06666666666666667
+    },
+    {
+      "true_class": "miniature_pinscher",
+      "predicted_class": "chihuahua",
+      "count": 2,
+      "true_class_support": 30,
+      "ratio_of_true_class": 0.06666666666666667
+    }
+  ],
+  "correct_case": {
+    "index": 582,
+    "image_id": "english_setter_21",
+    "true_label": 13,
+    "true_class": "english_setter",
+    "predicted_label": 13,
+    "predicted_class": "english_setter",
+    "confidence": 0.9992707371711731
+  },
+  "error_case": {
+    "index": 407,
+    "image_id": "american_pit_bull_terrier_46",
+    "true_label": 2,
+    "true_class": "american_pit_bull_terrier",
+    "predicted_label": 34,
+    "predicted_class": "staffordshire_bull_terrier",
+    "confidence": 0.9676885008811951
+  }
+}
