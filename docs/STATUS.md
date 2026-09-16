@@ -3,13 +3,13 @@
 ## 当前快照
 
 ```text
-当前阶段：A1 数据与评估协议
-阶段状态：ACCEPTED
-当前目标：确认数据划分、Transform、DataLoader 和指标均符合约定
-已完成：固定划分、Dataset、Transform、DataLoader、基础指标和自动检查
-已知问题：Colab 端重新运行和项目部署暂缓；依赖版本策略留到 A2
-下一步：建立 A1 提交，然后进入 A2 Baseline 对齐
-最后提交：7f9fc84
+当前阶段：A2 Baseline
+阶段状态：EXECUTING
+当前目标：完成 ResNet-18 训练代码并准备 Colab 训练
+已完成：模型构建、训练循环、训练入口和模型形状验证
+已知问题：真实训练尚未运行；Colab 代码部署暂缓；云端依赖版本策略待确认
+下一步：提交当前 A2 模型代码，然后规划 Colab 训练运行
+最后提交：3fc8c8b
 ```
 
 ## 阶段进度
@@ -18,7 +18,7 @@
 | --- | --- | --- |
 | A0 工程骨架 | ACCEPTED | Git、目录、项目控制文档 |
 | A1 数据与评估协议 | ACCEPTED | 固定划分、数据管线、指标和检查脚本 |
-| A2 Baseline | DRAFT | 待生成阶段对齐说明 |
+| A2 Baseline | EXECUTING | 模型、训练循环、训练入口 |
 | A3 消融实验 | TODO | 待 A2 通过 |
 | A4 评估与可解释性 | TODO | 待 A3 通过 |
 | A5 工程化与复现 | TODO | 待 A4 通过 |
@@ -80,14 +80,38 @@ Colab 环境：Linux，torch 2.11.0+cu128，Tesla T4，CUDA 可用
 延后事项：在 Colab 上重新运行 A1 和部署项目
 ```
 
+## A2 检查点
+
+| ID | 检查项 | 状态 | 证据 |
+| --- | --- | --- | --- |
+| C2.1 | 构建预训练 ResNet-18 | DONE | `models/model.py` |
+| C2.2 | 替换为 37 类输出层 | DONE | 输出形状 `[2, 37]` |
+| C2.3 | 实现训练与验证循环 | DONE | `utils/engine.py` |
+| C2.4 | 实现训练入口和日志 | DONE | `train.py` |
+| C2.5 | 建立 A2 代码提交 | DOING | 待提交 |
+| C2.6 | 在 Colab 运行完整 Baseline | TODO | 待 A2 代码提交后 |
+
+## A2 验证记录
+
+```text
+验证日期：2026-09-16
+Python 编译：通过
+ImageNet 预训练权重：加载成功
+模型输入：[2, 3, 224, 224]
+模型输出：[2, 37]
+可训练参数：11,195,493
+训练入口帮助信息：通过
+真实训练：尚未运行
+```
+
 ## 需求状态
 
 | 需求 | 状态 |
 | --- | --- |
 | R1 数据与分层划分 | DONE |
 | R2 数据预处理 | DONE |
-| R3 Baseline | TODO |
-| R4 训练记录 | TODO |
+| R3 Baseline | DOING |
+| R4 训练记录 | DOING |
 | R5 消融实验 | TODO |
 | R6 评估与分析 | TODO |
 | R7 Grad-CAM | TODO |

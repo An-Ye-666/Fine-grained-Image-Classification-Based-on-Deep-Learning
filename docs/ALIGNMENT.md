@@ -152,6 +152,54 @@ Colab 环境：Linux、Tesla T4、CUDA 可用
 项目负责人已确认 A1 未发现问题。建立 A1 提交后，进入 A2 Baseline 对齐。
 实现提交：`7f9fc84`
 
+## A2 Baseline
+
+```text
+阶段编号：A2
+阶段状态：EXECUTING
+对齐结论：项目负责人确认先执行模型构建和训练代码，再处理 Colab 实际运行
+```
+
+### 当前范围
+
+- 构建 ImageNet 预训练 ResNet-18；
+- 替换为 37 类输出层；
+- 实现训练和验证循环；
+- 实现命令行训练入口；
+- 保存 checkpoint、TensorBoard 日志和指标 JSON；
+- 验证模型输入输出形状。
+
+### 暂不执行
+
+- 不启动 15 轮真实训练；
+- 不运行测试集；
+- 不进行消融实验；
+- 不生成 Grad-CAM；
+- 暂不部署 Colab 代码和数据。
+
+### 当前产出
+
+```text
+models/model.py
+utils/engine.py
+train.py
+scripts/check_a2_model.py
+```
+
+### 已通过验证
+
+```text
+ImageNet 预训练权重：加载成功
+输入形状：[2, 3, 224, 224]
+输出形状：[2, 37]
+可训练参数：11,195,493
+train.py --help：通过
+```
+
+### 下一检查点
+
+提交当前 A2 代码。之后对齐 Colab 的数据、代码同步、输出存储和依赖环境，再运行真实 Baseline。
+
 ## 后续阶段模板
 
 ```text

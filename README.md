@@ -4,13 +4,12 @@
 
 ## 当前状态
 
-当前阶段：A1 数据与评估协议
+当前阶段：A2 Baseline
 
-当前状态：ACCEPTED
+当前状态：EXECUTING
 
-数据划分、图片 Transform、Dataset、DataLoader 和基础指标已经实现并通过自动检查。
-A1 已由项目负责人验收。本地 PyTorch 是 CPU 版本；Colab 云端 Tesla T4 已验证可用，
-但项目代码和数据在 Colab 上的部署留到 A2 处理。
+A1 数据与评估协议已经验收。A2 的 ResNet-18 模型、训练循环和训练入口已经实现，
+预训练权重及输出形状检查通过；真实训练和 Colab 部署尚未开始。
 
 ## 项目目标
 
@@ -61,6 +60,8 @@ A1 已由项目负责人验收。本地 PyTorch 是 CPU 版本；Colab 云端 Te
 pip install -r requirements.txt
 python -m data.manifest
 python -m scripts.check_a1_data
+python -m scripts.check_a2_model
+python train.py --help
 ```
 
 如果本地数据缺失，可以运行：
