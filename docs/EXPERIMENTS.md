@@ -1,6 +1,6 @@
 # 实验记录
 
-当前尚无训练或消融实验结果。
+Baseline 已在本地 CPU 完成 15 轮训练。
 
 ## 记录规则
 
@@ -13,12 +13,12 @@
 
 | Run ID | Commit | 配置 | Seed | Top-1 Acc | Top-5 Acc | Macro-F1 | 耗时 | 日志路径 | 结论 |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- | --- |
-| 待填写 | 待填写 | 待填写 | 42 | 待填写 | 待填写 | 待填写 | 待填写 | 待填写 | 待填写 |
+| baseline-01 | `d48b6f3` | ResNet-18 + 基础增强 + CrossEntropy + AdamW | 42 | 92.47% | 99.82% | 0.9244 | 约 93 分钟 | `artifacts/runs/baseline` | 第 4 轮最佳，之后明显过拟合 |
 
 ## 计划实验
 
 | 编号 | 实验 | 状态 |
 | --- | --- | --- |
-| E1 | Baseline：ResNet-18 + 基础增强 + CrossEntropy | TODO |
+| E1 | Baseline：ResNet-18 + 基础增强 + CrossEntropy | DONE |
 | E2 | 消融 A：Label Smoothing 0.1 | TODO |
 | E3 | 消融 B：待 A3 对齐后确定 | TODO |
