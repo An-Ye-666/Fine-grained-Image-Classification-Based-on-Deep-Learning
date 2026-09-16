@@ -9,7 +9,7 @@
 已完成：测试集一次性评估、混淆矩阵、错误案例、Grad-CAM 和结果文档
 已知问题：A4 尚待项目负责人验收
 下一步：项目负责人验收 A4，然后进入 A5 工程化与复现
-最后提交：c2eb43b
+最后提交：7dc7fc7
 ```
 
 ## 阶段进度
@@ -150,7 +150,7 @@ checkpoint，并授权在 A4 中只评估测试集一次。
 | C4.3 | 生成 37 类混淆矩阵 | DONE | `confusion_matrix.png` |
 | C4.4 | 生成正确和错误案例 Grad-CAM | DONE | `gradcam_correct.png`、`gradcam_error.png` |
 | C4.5 | 完成错误分析记录 | DONE | `analysis_summary.md` |
-| C4.6 | 建立 A4 结果提交 | DOING | 待提交 |
+| C4.6 | 建立 A4 结果提交 | DONE | `7dc7fc7` |
 
 ## A4 验证记录
 
