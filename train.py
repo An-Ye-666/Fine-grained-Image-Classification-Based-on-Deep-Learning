@@ -104,7 +104,13 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="冻结 ResNet-18 特征提取层，只训练最终分类层。",
     )
-    parser.set_defaults(pretrained=True)
+    parser.add_argument(
+        "--no-progress",
+        action="store_false",
+        dest="show_progress",
+        help="关闭 batch 级训练和验证进度条。",
+    )
+    parser.set_defaults(pretrained=True, show_progress=True)
     return parser.parse_args()
 
 
@@ -182,12 +188,14 @@ def main() -> None:
             optimizer=optimizer,
             criterion=criterion,
             device=device,
+            show_progress=args.show_progress,
         )
         validation_result = evaluate(
             model=model,
             dataloader=dataloaders["val"],
             criterion=criterion,
             device=device,
+            show_progress=args.show_progress,
         )
 
         writer.add_scalar("Loss/train", train_result.loss, epoch)

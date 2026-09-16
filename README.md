@@ -64,6 +64,8 @@ python -m scripts.check_a2_model
 python train.py --help
 ```
 
+训练时默认显示 batch 级进度条、当前 Loss 和平均 Loss；使用 `--no-progress` 可以关闭。
+
 如果本地数据缺失，可以运行：
 
 ```bash

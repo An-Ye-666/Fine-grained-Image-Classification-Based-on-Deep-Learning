@@ -11,6 +11,7 @@ from dataclasses import dataclass
 import torch
 from torch import nn
 from torch.utils.data import DataLoader
+from tqdm.auto import tqdm
 
 from utils.metrics import compute_classification_metrics
 
@@ -43,6 +44,7 @@ def train_one_epoch(
     optimizer: torch.optim.Optimizer,
     criterion: nn.Module,
     device: torch.device,
+    show_progress: bool = True,
 ) -> EpochResult:
     """训练一个 epoch，并返回平均损失和分类指标。"""
 
@@ -53,7 +55,19 @@ def train_one_epoch(
     all_logits: list[torch.Tensor] = []
     all_labels: list[torch.Tensor] = []
 
-    for images, labels in dataloader:
+    progress_bar = (
+        tqdm(
+            dataloader,
+            desc="Train",
+            leave=False,
+            dynamic_ncols=True,
+            mininterval=0.5,
+        )
+        if show_progress
+        else dataloader
+    )
+
+    for images, labels in progress_bar:
         images, labels = _move_batch_to_device(images, labels, device)
 
         # 清空上一个 batch 留下的梯度。
@@ -75,6 +89,16 @@ def train_one_epoch(
         all_logits.append(logits.detach().cpu())
         all_labels.append(labels.detach().cpu())
 
+        if show_progress:
+            progress_bar.set_postfix(
+                loss=f"{loss.item():.4f}",
+                avg_loss=f"{total_loss / total_samples:.4f}",
+                refresh=False,
+            )
+
+    if show_progress:
+        progress_bar.close()
+
     if total_samples == 0:
         raise ValueError("训练 DataLoader 没有产生任何样本")
 
@@ -95,6 +119,7 @@ def evaluate(
     dataloader: DataLoader,
     criterion: nn.Module,
     device: torch.device,
+    show_progress: bool = True,
 ) -> EpochResult:
     """在当前数据集上评估模型，不更新任何参数。"""
 
@@ -105,7 +130,19 @@ def evaluate(
     all_logits: list[torch.Tensor] = []
     all_labels: list[torch.Tensor] = []
 
-    for images, labels in dataloader:
+    progress_bar = (
+        tqdm(
+            dataloader,
+            desc="Validation",
+            leave=False,
+            dynamic_ncols=True,
+            mininterval=0.5,
+        )
+        if show_progress
+        else dataloader
+    )
+
+    for images, labels in progress_bar:
         images, labels = _move_batch_to_device(images, labels, device)
         logits = model(images)
         loss = criterion(logits, labels)
@@ -115,6 +152,16 @@ def evaluate(
         total_samples += batch_size
         all_logits.append(logits.detach().cpu())
         all_labels.append(labels.detach().cpu())
+
+        if show_progress:
+            progress_bar.set_postfix(
+                loss=f"{loss.item():.4f}",
+                avg_loss=f"{total_loss / total_samples:.4f}",
+                refresh=False,
+            )
+
+    if show_progress:
+        progress_bar.close()
 
     if total_samples == 0:
         raise ValueError("验证 DataLoader 没有产生任何样本")
