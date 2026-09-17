@@ -1,0 +1,10 @@
+{
+  "checkpoint": "C:\\Users\\19603\\AAA科研项目1号\\artifacts\\runs\\baseline\\best_model.pth",
+  "checkpoint_epoch": 4,
+  "checkpoint_best_validation_top1_accuracy": 0.9246823787689209,
+  "validation_loss": 0.2646972280124138,
+  "top1_accuracy": 0.9246823787689209,
+  "top5_accuracy": 0.9981850981712341,
+  "macro_f1": 0.9243506696079314,
+  "elapsed_seconds": 12.846894400001474
+}

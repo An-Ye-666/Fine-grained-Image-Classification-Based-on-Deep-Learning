@@ -23,7 +23,6 @@ artifacts/checkpoints/
 *.pth
 *.pt
 *.ckpt
-runs/
 wandb/
 
 # Local configuration

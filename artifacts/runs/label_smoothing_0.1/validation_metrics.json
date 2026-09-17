@@ -1,0 +1,10 @@
+{
+  "checkpoint": "artifacts\\runs\\label_smoothing_0.1\\best_model.pth",
+  "checkpoint_epoch": 9,
+  "checkpoint_best_validation_top1_accuracy": 0.9319419264793396,
+  "validation_loss": 0.37687342520634187,
+  "top1_accuracy": 0.9319419264793396,
+  "top5_accuracy": 0.9909256100654602,
+  "macro_f1": 0.9314882336420154,
+  "elapsed_seconds": 28.286012199998368
+}

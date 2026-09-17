@@ -31,7 +31,7 @@ A5 正在整理运行说明、日志、依赖和最终工程检查，不会重�
 ├── models/                模型定义
 ├── utils/                 指标、日志和可视化工具
 ├── scripts/               可重复运行的检查脚本
-├── datasets/              原始数据，不提交到 Git
+├── data/oxford-iiit-pet/  原始数据，不提交到 Git
 ├── artifacts/             实验证据和交付物
 ├── docs/                  项目管理文档
 ├── train.py               训练入口
@@ -41,7 +41,8 @@ A5 正在整理运行说明、日志、依赖和最终工程检查，不会重�
 └── README.md
 ```
 
-模型与训练代码将在 A2 阶段实现。A1 当前只负责数据入口和评价协议。
+代码已经完成数据划分、Baseline、Label Smoothing 消融、最终测试评估和 Grad-CAM。
+原始数据和模型权重不会提交到 Git，但训练日志、指标和可视化结果会进入 artifacts。
 
 ## 项目文档
 
@@ -57,13 +58,76 @@ A5 正在整理运行说明、日志、依赖和最终工程检查，不会重�
 
 ## 快速开始
 
+### 1. 安装依赖
+
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
+```
+
+当前验证环境是 Windows、Python 3.14.4 和 CPU 版 PyTorch 2.14.0。
+
+### 2. 准备数据
+
+如果 `data/oxford-iiit-pet` 已经存在：
+
+```bash
 python -m data.manifest
+```
+
+如果本地缺少数据，允许 torchvision 下载：
+
+```bash
+python -m data.manifest --download
+```
+
+### 3. 检查数据和模型
+
+```bash
 python -m scripts.check_a1_data
 python -m scripts.check_a2_model
-python train.py --help
 ```
+
+### 4. 训练实验
+
+训练普通 Baseline：
+
+```bash
+python train.py --epochs 15 --batch-size 32 --device cpu
+```
+
+训练 Label Smoothing 0.1 消融实验：
+
+```bash
+python train_label_smoothing.py --epochs 10 --batch-size 32 --device cpu
+```
+
+### 5. 验证集评估
+
+```bash
+python evaluate.py `
+  --checkpoint artifacts/runs/label_smoothing_0.1/best_model.pth `
+  --split val `
+  --device cpu
+```
+
+### 6. 最终测试分析
+
+测试集已经评估过一次。`scripts/analyze_model.py` 会检查
+`artifacts/analysis/final_model/test_metrics.json`，存在时拒绝重复运行：
+
+```bash
+python -m scripts.analyze_model --allow-test --device cpu
+```
+
+## 最终结果
+
+| 模型 | 验证 Top-1 | 测试 Top-1 | 测试 Macro-F1 |
+| --- | ---: | ---: | ---: |
+| ResNet-18 Baseline | 92.47% | 未使用 | 未使用 |
+| ResNet-18 + Label Smoothing 0.1 | 93.19% | 92.66% | 0.9258 |
+
+最终图表位于 `artifacts/analysis/final_model/`，训练日志位于
+`artifacts/runs/baseline/` 和 `artifacts/runs/label_smoothing_0.1/`。
 
 训练时默认显示 batch 级进度条、当前 Loss 和平均 Loss；使用 `--no-progress` 可以关闭。
 

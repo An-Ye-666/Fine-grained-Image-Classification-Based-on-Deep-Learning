@@ -4,12 +4,12 @@
 
 ```text
 当前阶段：A5 工程化与复现
-阶段状态：EXECUTING
+阶段状态：VERIFYING
 当前目标：整理 README、依赖、日志和最终可复现检查
-已完成：A4 验收；最终测试结果、混淆矩阵和 Grad-CAM 已归档
-已知问题：训练日志尚未纳入最终提交；README 仍需补齐准确复现命令
-下一步：整理工程文件和运行说明
-最后提交：6780d71
+已完成：README、忽略规则、日志归档和最终工程检查
+已知问题：A5 尚待项目负责人验收
+下一步：项目负责人验收 A5，然后进入 A6 报告与答辩
+最后提交：e01e9f6
 ```
 
 ## 阶段进度
@@ -21,7 +21,7 @@
 | A2 Baseline | ACCEPTED | 15 轮训练、最佳模型、训练日志 |
 | A3 消融实验 | ACCEPTED | Label Smoothing 0.1 对比结果 |
 | A4 评估与可解释性 | ACCEPTED | 测试评估、混淆矩阵、Grad-CAM |
-| A5 工程化与复现 | EXECUTING | README、依赖、日志、复现检查 |
+| A5 工程化与复现 | VERIFYING | README、依赖、日志、复现检查 |
 | A6 报告与答辩 | TODO | 待 A5 通过 |
 
 ## A0 检查点
@@ -165,6 +165,29 @@ checkpoint，并授权在 A4 中只评估测试集一次。
 主要混淆：american_pit_bull_terrier -> staffordshire_bull_terrier（5）
 正确案例：english_setter_21
 错误案例：american_pit_bull_terrier_46 -> staffordshire_bull_terrier
+```
+
+## A5 检查点
+
+| ID | 检查项 | 状态 | 证据 |
+| --- | --- | --- | --- |
+| C5.1 | 完善 README 和复现命令 | DONE | `README.md` |
+| C5.2 | 修正 Git 忽略和换行规则 | DONE | `.gitignore`、`.gitattributes` |
+| C5.3 | 归档训练指标与 TensorBoard 日志 | DONE | `artifacts/runs/` |
+| C5.4 | 新增最终工程检查脚本 | DONE | `scripts/check_project.py` |
+| C5.5 | 运行工程完整性检查 | DONE | 全部 `PASS` |
+| C5.6 | 建立 A5 结果提交 | DOING | 待提交 |
+
+## A5 验证记录
+
+```text
+编译检查：通过
+关键文件和目录：全部存在
+数据划分：5144 / 1102 / 1103
+Baseline 日志：3 个 event 文件
+Label Smoothing 日志：1 个 event 文件
+最终测试 Top-1：0.9266
+最终模型：可加载，训练轮次 9
 ```
 
 ## 需求状态
