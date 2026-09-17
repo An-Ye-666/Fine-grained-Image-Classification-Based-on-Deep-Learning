@@ -9,7 +9,7 @@
 已完成：README、忽略规则、日志归档和最终工程检查
 已知问题：A5 尚待项目负责人验收
 下一步：项目负责人验收 A5，然后进入 A6 报告与答辩
-最后提交：e01e9f6
+最后提交：d7b911a
 ```
 
 ## 阶段进度
@@ -176,7 +176,7 @@ checkpoint，并授权在 A4 中只评估测试集一次。
 | C5.3 | 归档训练指标与 TensorBoard 日志 | DONE | `artifacts/runs/` |
 | C5.4 | 新增最终工程检查脚本 | DONE | `scripts/check_project.py` |
 | C5.5 | 运行工程完整性检查 | DONE | 全部 `PASS` |
-| C5.6 | 建立 A5 结果提交 | DOING | 待提交 |
+| C5.6 | 建立 A5 结果提交 | DONE | `d7b911a` |
 
 ## A5 验证记录
 
