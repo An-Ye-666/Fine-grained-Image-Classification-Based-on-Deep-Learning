@@ -6,10 +6,10 @@
 
 当前阶段：A6 报告与答辩
 
-当前状态：DRAFT
+当前状态：VERIFYING
 
 A5 已验收。工程文件、日志和检查脚本已经整理完成。
-下一步将根据最终结果撰写 2 到 3 页技术报告，并准备答辩材料。
+2 到 3 页技术报告已生成并完成 3 页渲染检查；当前等待 A6 验收。
 
 ## 项目目标
 
@@ -128,6 +128,7 @@ python -m scripts.analyze_model --allow-test --device cpu
 
 最终图表位于 `artifacts/analysis/final_model/`，训练日志位于
 `artifacts/runs/baseline/` 和 `artifacts/runs/label_smoothing_0.1/`。
+最终报告位于 `artifacts/report/`。
 
 训练时默认显示 batch 级进度条、当前 Loss 和平均 Loss；使用 `--no-progress` 可以关闭。
 

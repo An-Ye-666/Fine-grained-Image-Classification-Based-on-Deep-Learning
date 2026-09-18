@@ -369,7 +369,7 @@ README：已补齐运行与复现命令
 
 ```text
 阶段编号：A6
-阶段状态：DRAFT
+阶段状态：VERIFYING
 对齐状态：等待项目负责人确认报告范围和答辩准备方式
 ```
 
@@ -387,6 +387,17 @@ README：已补齐运行与复现命令
 - 不重新评估测试集；
 - 不增加新实验；
 - 不修改已经冻结的测试结果。
+
+### 实际执行结果
+
+```text
+训练曲线图：3 张
+最终报告：【考核】叶安_X124306049_宠物分类.pdf
+报告页数：3
+报告结构：任务背景、实验设置、实验结果、消融分析、错误案例、Grad-CAM、AI 复盘
+渲染检查：3 页均有有效内容
+GitHub：https://github.com/An-Ye-666/Fine-grained_Image_Classification_Based_on_Deep_Learning
+```
 
 ## 后续阶段模板
 

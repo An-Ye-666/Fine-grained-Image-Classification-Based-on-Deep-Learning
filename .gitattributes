@@ -4,6 +4,7 @@
 *.md text eol=lf whitespace=-trailing-space
 *.json text eol=lf
 *.csv text eol=lf
+*.pdf binary
 .gitignore text eol=lf
 *.txt text eol=lf
 *.yml text eol=lf
