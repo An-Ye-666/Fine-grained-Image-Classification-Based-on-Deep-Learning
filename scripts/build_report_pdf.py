@@ -32,7 +32,7 @@ STUDENT_NAME = "叶安"
 STUDENT_ID = "X124306049"
 GITHUB_URL = (
     "https://github.com/An-Ye-666/"
-    "Fine-grained_Image_Classification_Based_on_Deep_Learning"
+    "Fine-grained-Image-Classification-Based-on-Deep-Learning"
 )
 
 

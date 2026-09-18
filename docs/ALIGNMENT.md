@@ -396,7 +396,7 @@ README：已补齐运行与复现命令
 报告页数：3
 报告结构：任务背景、实验设置、实验结果、消融分析、错误案例、Grad-CAM、AI 复盘
 渲染检查：3 页均有有效内容
-GitHub：https://github.com/An-Ye-666/Fine-grained_Image_Classification_Based_on_Deep_Learning
+GitHub：https://github.com/An-Ye-666/Fine-grained-Image-Classification-Based-on-Deep-Learning
 ```
 
 ## 后续阶段模板

@@ -2,6 +2,8 @@
 
 本项目用于完成《科研项目组本科生考核任务书与操作指南》中的 72 小时考核任务，目标是在 Oxford-IIIT Pet 数据集上完成可复现的 ResNet-18 分类基线、消融实验、结果分析和工程交付。
 
+GitHub：[An-Ye-666/Fine-grained-Image-Classification-Based-on-Deep-Learning](https://github.com/An-Ye-666/Fine-grained-Image-Classification-Based-on-Deep-Learning)
+
 ## 当前状态
 
 当前阶段：A6 报告与答辩
