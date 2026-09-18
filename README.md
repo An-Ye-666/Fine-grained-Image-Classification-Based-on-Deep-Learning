@@ -1,17 +1,9 @@
 # 基于深度学习的牛津宠物细粒度分类
 
-本项目用于完成《科研项目组本科生考核任务书与操作指南》中的 72 小时考核任务，目标是在 Oxford-IIIT Pet 数据集上完成可复现的 ResNet-18 分类基线、消融实验、结果分析和工程交付。
+本项目目标是在 Oxford-IIIT Pet 数据集上完成可复现的 ResNet-18 分类基线、消融实验、结果分析和工程交付。
 
 GitHub：[An-Ye-666/Fine-grained-Image-Classification-Based-on-Deep-Learning](https://github.com/An-Ye-666/Fine-grained-Image-Classification-Based-on-Deep-Learning)
 
-## 当前状态
-
-当前阶段：A6 报告与答辩
-
-当前状态：VERIFYING
-
-A5 已验收。工程文件、日志和检查脚本已经整理完成。
-2 到 3 页技术报告已生成并完成 3 页渲染检查；当前等待 A6 验收。
 
 ## 项目目标
 
